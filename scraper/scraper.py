@@ -94,7 +94,7 @@ for ticker in tickers_list:
         
     
 #Save the data to a csv file
-csv_file_path = 'updated_ref.csv'
+csv_file_path = 'Refinitiv_2000.csv'
 df = pd.DataFrame(esg_data, columns=['Company', 'ESG Score' , 'E', 'Emissions', 'Resource Use', 'Innovation', 'S', 'Human Rights', 'Product Responsibility', 'Workforce', 'Community', 'G', 'Management', 'Shareholders', 'CSR Strategy','Tickers'])
 df.drop_duplicates()
 df.to_csv(csv_file_path, index=False)
