@@ -1,6 +1,7 @@
 import requests 
 import pandas as pd
 
+#function to get tickers based on company name
 def getTicker(company_name):
     yfinance = "https://query2.finance.yahoo.com/v1/finance/search"
     user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
@@ -18,6 +19,7 @@ def getTicker(company_name):
     
     return company_code
 
+#path to csv file with company names
 csv_file_path = 'esg_scores_600.csv'
 df = pd.read_csv(csv_file_path)
 
@@ -25,13 +27,14 @@ tickers = []
 
 for name in df['Company']:
     tickers.append(getTicker(name))
-
+    
+#creates a new column called Tickers
 df['Tickers'] = tickers
 
+#save it to a new csv file
 df.to_csv('500.csv', index=False)
 
 '''
-
 import pandas as pd
 
 # Load the first CSV file
